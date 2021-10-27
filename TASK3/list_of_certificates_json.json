@@ -1,0 +1,24 @@
+[
+  {
+    "id": 3,
+    "registration_number": "TT6969TT",
+    "date_of_registration": "31/01/2021",
+    "VIN_code": "756fhgrtjoi6dtsge6",
+    "car": "Mercedes",
+    "year_of_manufacture": 1984,
+    "errors": [
+      "Invalid VIN-code, must be in format 17 numbers + letters"
+    ]
+  },
+  {
+    "id": 2,
+    "registration_number": "AU1212UA",
+    "date_of_registration": "29/02/2000",
+    "VIN_code": "irashevchenko03",
+    "car": "Mercedes",
+    "year_of_manufacture": 1997,
+    "errors": [
+      "Invalid VIN-code, must be in format 17 numbers + letters"
+    ]
+  }
+]

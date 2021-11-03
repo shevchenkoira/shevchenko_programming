@@ -1,0 +1,13 @@
+[
+  {
+    "id": 2,
+    "registration_number": "AU1212UA",
+    "date_of_registration": "01/06/2003",
+    "VIN_code": "irashevchenko03",
+    "car": "Mercedes",
+    "year_of_manufacture": 1997,
+    "errors": [
+      "Invalid VIN-code, must be in format 17 numbers + letters"
+    ]
+  }
+]

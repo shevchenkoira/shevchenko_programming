@@ -14,7 +14,7 @@ class RegistrationCertificate(db.Model):
     date_of_registration = db.Column(db.String(45), nullable=False)
     VIN_code = db.Column(db.String(17), nullable=False)
     car = db.Column(db.String(45), nullable=False)
-    year_of_manufacture = db.Column(db.Integer)
+    year_of_manufacture = db.Column(db.Integer, nullable=False)
 
     today = get_today()
     this_year = get_today().year

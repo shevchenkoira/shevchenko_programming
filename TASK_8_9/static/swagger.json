@@ -1,0 +1,549 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "RESTFUL",
+        "description": "RESTFUL API LULZ",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/"
+        }
+    ],
+    "security": [
+                    {
+                        "JWT": ["SECRET_KEY"]
+                    }],
+    "paths": {
+        "/api/certificates/": {
+            "post": {
+                "tags": [
+                    "Add Certificate"
+                ],
+                "requestBody": {
+                    "description": "Certificate object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/putrequest"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Adds new certificate",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Get all certificates"
+                ],
+                "parameters": [
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "required": false,
+                        "description": "Field to sort by",
+                        "type": "string"
+                    },
+                    {
+                        "name": "sort_type",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sort type: desc or asc",
+                        "type": "string"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "Search by key",
+                        "type": "string"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page to show",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "How many items to show",
+                        "type": "integer"
+                    }
+                ],
+                "summary": "Get all certificates",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/certificates/{id}": {
+            "delete": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the certificate",
+                        "type": "integer"
+                    }
+                ],
+                "tags": [
+                    "Delete certificate, if exists"
+                ],
+                "summary": "Deleting a certificate if exists",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Error"
+                    }
+                }
+            },
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the certificate",
+                        "type": "integer"
+                    }
+                ],
+                "tags": [
+                    "Get certificate by id"
+                ],
+                "summary": "Get certificate by id",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Udpdate an existing certificate"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "Certificate request id",
+                        "schema": {
+                            "$ref": "#/components/schemas/id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Certificate object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/putrequest"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Udate an existing certificate",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/putrequest"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/register/": {
+            "post": {
+                "tags": [
+                    "Register user"
+                ],
+                "requestBody": {
+                    "description": "User object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/adduser"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Registering new user",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Login user"
+                ],
+                "requestBody": {
+                    "description": "Login user",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/login_user"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Login",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/orders": {
+            "put": {
+                "tags": [
+                    "Buy car"
+                ],
+                "requestBody": {
+                    "description": "Buy car",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/buy_car"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Buy car",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Add order"
+                ],
+                "requestBody": {
+                    "description": "Add order",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/add_order"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Add order",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/orders/{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the order",
+                        "type": "integer"
+                    }
+                ],
+                "tags": [
+                    "Get order by id"
+                ],
+                "summary": "Get order by id",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Error"
+                    }
+                }
+            }
+        },
+        "/api/orders/": {
+            "get": {
+                "tags": [
+                    "Get all orders"
+                ],
+                "parameters": [
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "required": false,
+                        "description": "Field to sort by",
+                        "type": "string"
+                    },
+                    {
+                        "name": "sort_type",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sort type: desc or asc",
+                        "type": "string"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "Search by key",
+                        "type": "string"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page to show",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "How many items to show",
+                        "type": "integer"
+                    }
+                ],
+                "summary": "Get all orders",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/users/": {
+            "get": {
+                "tags": [
+                    "Get all users"
+                ],
+                "parameters": [
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "required": false,
+                        "description": "Field to sort by",
+                        "type": "string"
+                    },
+                    {
+                        "name": "sort_type",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sort type: desc or asc",
+                        "type": "string"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "Search by key",
+                        "type": "string"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page to show",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "How many items to show",
+                        "type": "integer"
+                    }
+                ],
+                "summary": "Get all users",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/users/{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the user",
+                        "type": "integer"
+                    }
+                ],
+                "tags": [
+                    "Get user by id"
+                ],
+                "summary": "Get user by id",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "id": {
+                "properties": {
+                    "uuid": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "putrequest":
+            {
+                "type": "object",
+                "properties":{
+                    "id":{
+                        "type": "integer",
+                        "format": "number"
+                    },
+                    "registration_number": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "date_of_registration": {
+                        "type": "string",
+                        "format:": "string"
+                    },
+                    "VIN_code": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "car": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "year_of_manufacture": {
+                        "type": "integer",
+                        "format": "number"
+                    }
+                }
+            },
+            "adduser": {
+                "type": "object",
+                "properties":{
+                    "id":{
+                        "type": "integer",
+                        "format": "number"
+                    },
+                    "name": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "last_name": {
+                        "type": "string",
+                        "format:": "string"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "password": {
+                        "type": "string",
+                        "format": "string"
+                    }
+                }
+            },
+            "login_user": {
+            "type": "object",
+                "properties":{
+                    "email": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "password": {
+                        "type": "string",
+                        "format": "string"
+                    }
+                }
+            },
+            "buy_car": {
+                "type": "object",
+                "properties":{
+                    "car":{
+                        "type": "string",
+                        "format": "string"
+                    }
+                }
+            },
+            "add_order": {
+                "type": "object",
+                "properties":{
+                    "item_id":{
+                        "type": "integer",
+                        "format": "number"
+                    },
+                    "car": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "amount": {
+                        "type": "integer",
+                        "format:": "number"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "JWT": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "JWT"
+            }
+        }
+    }
+}

@@ -10,7 +10,6 @@ class Menu:
         "field": " a - id \n b - registration number \n c - date of registration \n d - VIN-code \n e - car \n"
                  " f - year_of_manufacture",
         "bad_choice": "There is no such command, please, try again",
-
         "value": "Enter value: ",
         "id": "Enter id: ",
         "registration_number": "Enter registration number (AA0000AA): ",
@@ -18,12 +17,10 @@ class Menu:
         "VIN_code": "Enter VIN-code (17 numbers + letters): ",
         "car": "Enter car model (Audi / Mercedes / Tesla): ",
         "year_of_manufacture": "Enter year_of_manufacture: ",
-
         "sort": "Container was sorted by given parameter. Enter 1 to print container.",
         "add": "Certificate was added. Enter 1 to print container",
         "delete": "Certificate was deleted. Enter 1 to print container",
         "edit": "Certificate was edited. Enter 1 to print container",
-
         "no_id": "There isn`t such id in this file",
         "name_file": "Input name of your file: ",
         "file_not_exist": "File not exists, try again"

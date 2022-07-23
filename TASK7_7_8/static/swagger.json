@@ -1,0 +1,218 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "RESTFUL",
+        "description": "RESTFUL API FOR IRA SHEVCHENKO'S CLASS",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/"
+        }
+    ],
+    "paths": {
+        "/api/certificates/": {
+            "post": {
+                "tags": [
+                    "Add Certificate"
+                ],
+                "requestBody": {
+                    "description": "Certificate object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/putrequest"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Adds new certificate",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Get all certificates"
+                ],
+                "parameters": [
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "required": false,
+                        "description": "Field to sort by",
+                        "type": "string"
+                    },
+                    {
+                        "name": "sort_type",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sort type: desc or asc",
+                        "type": "string"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "Search by key",
+                        "type": "string"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page to show",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "How many items to show",
+                        "type": "integer"
+                    }
+                ],
+                "summary": "Get all certificates",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/certificates/{id}": {
+            "delete": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the certificate",
+                        "type": "integer"
+                    }
+                ],
+                "tags": [
+                    "Delete certificate, if exists"
+                ],
+                "summary": "Deleting a certificate if exists",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Error"
+                    }
+                }
+            },
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the certificate",
+                        "type": "integer"
+                    }
+                ],
+                "tags": [
+                    "Get certificate by id"
+                ],
+                "summary": "Get certificate by id",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Udpdate an existing certificate"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "Certificate request id",
+                        "schema": {
+                            "$ref": "#/components/schemas/id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Certificate object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/putrequest"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Udate an existing certificate",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/putrequest"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "id": {
+                "properties": {
+                    "uuid": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "putrequest":
+            {
+                "type": "object",
+                "properties":{
+                    "id":{
+                        "type": "integer",
+                        "format": "number"
+                    },
+                    "registration_number": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "date_of_registration": {
+                        "type": "string",
+                        "format:": "string"
+                    },
+                    "VIN_code": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "car": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "year_of_manufacture": {
+                        "type": "integer",
+                        "format": "number"
+                    }
+                }
+            }
+        }
+    }
+}

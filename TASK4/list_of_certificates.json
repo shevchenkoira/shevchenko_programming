@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "registration_number": "AB1234CD",
+    "date_of_registration": "29/02/2020",
+    "VIN_code": "12345678901234567",
+    "car": "Audi",
+    "year_of_manufacture": 2019
+  },
+  {
+    "id": 2,
+    "registration_number": "AU1212UA",
+    "date_of_registration": "01/06/2003",
+    "VIN_code": "irynashevchenko03",
+    "car": "Mercedes",
+    "year_of_manufacture": 1997
+  },
+  {
+    "id": 3,
+    "registration_number": "TT6969TT",
+    "date_of_registration": "31/01/2021",
+    "VIN_code": "oleksiidatsiuk228",
+    "car": "Mercedes",
+    "year_of_manufacture": 1984
+  }
+]
